@@ -1,8 +1,12 @@
 #ifndef NEURON_H
 #define NEURON_H
 
+#include <vector>
 
-class neuron{
+class Neuron{
  public:
-  neuron();
+  Neuron(double numInputs);
+  
+ private:
+  std::vector<double> m_weights;
 };
