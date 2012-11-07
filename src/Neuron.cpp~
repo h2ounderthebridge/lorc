@@ -1,0 +1,10 @@
+#include <vector>
+#include "Neuron.h"
+
+using namespace std;
+
+Neuron::Neuron(vector<double> wghts, double momentum){
+  m_weights = wghts;
+  m_momentum = momentum;
+}
+

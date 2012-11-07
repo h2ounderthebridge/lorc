@@ -5,8 +5,12 @@
 
 class Neuron{
  public:
-  Neuron(double numInputs);
+  Neuron(std::vector<double> wghts, double momentum);
+  double activate(std::vector<double> inputs);
   
  private:
   std::vector<double> m_weights;
+  double m_momenutm;
 };
+
+#endif
