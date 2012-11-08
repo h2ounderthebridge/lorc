@@ -1,0 +1,14 @@
+#ifndef NETWORK_H
+#define NETWORK_H
+
+#include <vector>
+
+class Network
+{
+ public:
+  Network(std::vector<unsigned> arch);
+  std::vector<double> feedforward(std::vector<double> inputs);
+  void backprop(std::vector<double> outputs, std::vector<double> actual);
+ private:
+  unsigned text;
+};

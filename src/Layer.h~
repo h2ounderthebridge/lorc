@@ -1,0 +1,10 @@
+#ifndef LAYER_H
+#define LAYER_H
+
+#include <vector>
+
+class Layer
+{
+ public:
+  Layer(std::vector<Neuron> neurons);
+};

@@ -1,0 +1,7 @@
+#include "Layer.h"
+#include "Neuron.h"
+#include <vector>
+
+using namespace std;
+
+Layer::Layer(vector<
