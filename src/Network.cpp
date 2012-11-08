@@ -19,9 +19,7 @@ Network::Network(vector<unsigned> arch, double momentum){
     for(unsigned q = 0; q < neuroncount; q++){
       vector<double> wghts;
       for(unsigned r = 0; r < inputcount; r++){
-	double weight = randweight();
-	cout << weight << endl;
-	wghts.push_back(weight);
+	wghts.push_back(randweight());
       }
       neurons.push_back(Neuron(wghts,m_momentum));
     }
@@ -46,8 +44,8 @@ vector<double> Network::feedforward(vector<double> inputs){
 }
 
 void Network::backprop(vector<double> actual){
-  for(unsigned i = m_numLayers; i != -1; i--){
-    if(i == m_numLayers){
+  for(unsigned i = m_numLayers-1; i != -1; i--){
+    if(i == m_numLayers-1){
       for(unsigned r = 0; r < m_network[i].m_neurons.size(); r++){
 	double err = actual[r]-m_network[i].m_neurons[r].m_output;
 	m_network[i].m_neurons[r].increaseerror(err);
@@ -66,6 +64,11 @@ void Network::backprop(vector<double> actual){
       }
     }
   }
+}
+
+void Network::trainnetwork(vector<double> inputs, vector<double> actual){
+  vector<double> test = feedforward(inputs);
+  backprop(actual);
 }
       
   

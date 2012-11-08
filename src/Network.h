@@ -11,6 +11,7 @@ class Network
   Network(std::vector<unsigned> arch, double momentum);
   std::vector<double> feedforward(std::vector<double> inputs);
   void backprop(std::vector<double> actual);
+  void trainnetwork(std::vector<double> inputs,std::vector<double> actual);
  private:
   std::vector<Layer> m_network;
   double randweight();

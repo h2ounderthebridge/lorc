@@ -1,5 +1,8 @@
 #include "Layer.h"
 #include "Neuron.h"
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 #include <vector>
 
 using namespace std;

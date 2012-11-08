@@ -1,5 +1,7 @@
 #include <vector>
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 #include "Neuron.h"
 
 using namespace std;
@@ -8,6 +10,9 @@ Neuron::Neuron(vector<double> &wghts, double momentum){
   m_weights = wghts;
   m_momentum = momentum;
   m_outputerror = 0;
+  m_delta = 0;
+  m_output = 0;
+  srand( time(NULL) );
 }
 
 double Neuron::sigderiv(double y){ return 1-y*y; };
