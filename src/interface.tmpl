@@ -1,0 +1,49 @@
+<% c++ #include "content.h" %>
+<% skin interface %>
+<% view architecture uses content::architecture %>
+<% template render() %>
+<html>
+	<head>
+		<title>Design Your Neural Network</title>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<script type="text/javascript" src="/js/default.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<h1>Design Your Network</h1>
+		<form method="post" action="">
+		      <table>
+			<% form as_table structure %>
+		      </table>
+		</form>
+		<a href="/interface/train">Continue To Training...</a>
+	</body>
+</html>
+<% end template %>
+<% end view %>
+
+<% view training uses content::training %>
+<% template render() %>
+<html>
+	<head>
+		<title>Train Your Neural Network</title>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<script type="text/javascript" src="/js/default.js"></script>
+	</head>
+	<body>
+		<h1>Train Your Neural Network</h1>
+		<form method="post" action="">
+		<table>
+		  <% form as_table trainer %>
+		</table>
+		</form><br><br>
+		<h2>Results</h2>
+		<p>Output 1: <%= output1 %></p>
+		<p>Output 2: <%= output2 %></p>
+		<p>Network Error: <%= error %></p>
+	</body>
+</html>
+<% end template %>
+<% end view %>
+
+<% end skin %>

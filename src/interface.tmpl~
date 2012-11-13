@@ -1,0 +1,22 @@
+<% c++ #include "content.h" %>
+<% skin interface %>
+<% view architecture uses content::architecture %>
+<% template render() %>
+<html>
+	<head>
+		<title>Design Your Neural Network</title>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<script type="text/javascript" src="/js/default.js"></script>
+	</head>
+	<body>
+		<h1>Design Your Network</h1>
+		<form method="post" action="/interface/train">
+		      <table>
+			<% form as_table structure %>
+		      </table>
+		</form>
+	</body>
+</html>
+<% end template %>
+<% end view %>
+<% end skin %>

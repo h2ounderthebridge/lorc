@@ -5,6 +5,6 @@
 	},
 	"views" : {
 		"paths" : [ "." ],
-		"skins" : [ "my_skin" ]
+		"skins" : [ "interface" ]
 	}	
 }

@@ -1,0 +1,49 @@
+#include "Interface.h"
+
+using namespace std;
+
+interface::interface(cppcms::service &srv) : cppcms::application(srv)
+{
+  dispatcher().assign("",&interface::create,this);
+  mapper().assign("");
+
+  dispatcher().assign("/train",&interface::train,this);
+  mapper().assign("train","/train");
+  
+  dispatcher().assign("/train/json",&interface::jtrain,this);
+  mapper().assign("jtrain","/train/json");
+
+  dispatcher().assign("/classify",&interface::classify,this);
+  mapper().assign("classify","/classify");
+
+  mapper().root("/interface");
+}
+
+void interface::create()
+{
+  content::architecture c;
+  render("architecture",c);
+}
+
+void interface::train()
+{
+  content::architecture c;
+  vector<unsigned>
+  if(request().request_method()=="POST") {
+    string inputs = c.structure.numInputs.value();
+    string hidden = c.structure.numHidden.value();
+    string output = c.structure.numOutputs.value();
+    vector<unsigned> arch;
+    unsigned i;
+    unsigned h;
+    unsigned o;
+    istringstream (inputs) >> i;
+    istringstream (hidden) >> h;
+    istringstream (output) >> o;
+    arch.push_back(i);
+    arch.push_back(h);
+    arch.push_back(o);
+    m_appnet(arch,0.5);
+    
+      
+  

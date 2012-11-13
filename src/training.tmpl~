@@ -1,0 +1,22 @@
+<% c++ #include "content.h" %>
+<% skin training %>
+<% view training uses content::training %>
+<% template render() %>
+<html>
+	<head>
+		<title>Train Your Neural Network</title>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<script type="text/javascript" src="/js/default.js"></script>
+	</head>
+	<body>
+		<h1>Train Your Neural Network</h1>
+		<form method="post" action="/interface/train">
+		      <table>
+			<% form as_table structure %>
+		      </table>
+		</form>
+	</body>
+</html>
+<% end template %>
+<% end view %>
+<% end skin %>

@@ -1,11 +1,24 @@
 <% c++ #include "content.h" %>
 <% skin my_skin %>
-<% view message uses content::message %>
+<% view data uses content::data %>
 <% template render() %>
 <html>
+	<title>Test Applicatin</title>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+	</head>
 	<body>
-		<h1><%= text %> World!</h1>
-		<p><%= text %> is the message supplied, yay dynamism!</p>
+		<h1>Please answer the following questions</h1>
+		<form method="post" action="">
+		<table>
+		<% form as_table info %>
+		</table>
+		</form>
+		<% if results %>
+		   <h1>Output: <%= results %></h1>
+		<% else %>
+		   <p>You have not answered the questions</p>
+		<% end %>   
 	</body>
 </html>
 <% end template %>

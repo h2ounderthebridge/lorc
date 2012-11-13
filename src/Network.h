@@ -12,6 +12,9 @@ class Network
   std::vector<double> feedforward(std::vector<double> inputs);
   void backprop(std::vector<double> actual);
   void trainnetwork(std::vector<double> inputs,std::vector<double> actual);
+  void increasenetworkerror(double err);
+  double getnetworkerror();
+  std::vector<double> getlastoutput();
  private:
   std::vector<Layer> m_network;
   double randweight();
@@ -19,6 +22,8 @@ class Network
   unsigned m_numLayers;
   unsigned m_numInputs;
   double sigderiv(double y);
+  double m_networkerror;
+  std::vector<double> m_lastoutput;
 };
 
 #endif

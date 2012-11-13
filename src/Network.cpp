@@ -36,10 +36,16 @@ double Network::sigderiv(double y){
   return 1-y*y;
 };
 
+void Network::increasenetworkerror(double err){ m_networkerror += err; };
+
+double Network::getnetworkerror(){ return m_networkerror; };
+vector<double> Network::getlastoutput(){ return m_lastoutput; };
+
 vector<double> Network::feedforward(vector<double> inputs){
   for(unsigned n = 0; n < m_network.size(); n++){
     inputs = m_network[n].getlayeroutputs(inputs);
   }
+  m_lastoutput = inputs;
   return inputs;
 }
 
@@ -48,6 +54,7 @@ void Network::backprop(vector<double> actual){
     if(i == m_numLayers-1){
       for(unsigned r = 0; r < m_network[i].m_neurons.size(); r++){
 	double err = actual[r]-m_network[i].m_neurons[r].m_output;
+	increasenetworkerror(err);
 	m_network[i].m_neurons[r].increaseerror(err);
 	m_network[i].m_neurons[r].calculatedelta();
 	for(unsigned g = 0; g < m_network[i-1].m_neurons.size(); g++){
